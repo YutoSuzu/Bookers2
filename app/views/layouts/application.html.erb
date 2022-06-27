@@ -19,30 +19,48 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      
+      <ul class="navbar-nav ml-auto">
      <% if user_signed_in? %>
       <li>
-        <%= link_to "Users", 
+        <%= link_to user_path(current_user.id),class:"nav-link text-white" do %>
+          <i class="fas fa-home"></i>Home
+        <% end %>
       </li>
       <li>
-        <%= link_to "Books", books_path %>
+        <%= link_to user_path(current_user.id) ,class:"nav-link text-white" do %>
+          <i class="fas fa-users pr-1"></i>Users
+        <% end %>
       </li>
       <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to books_path  ,class:"nav-link text-white" do %>
+          <i class="fas fa-users pr-1"></i>Books
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path ,class:"nav-link text-white" , method: :delete do %>
+          <i class="fas fa-users pr-1"></i>Log out
+        <% end %>
       </li>
     <% else %>
       <li>
-        <%= link_to "About", about_path %>
+        <%= link_to root_path, class:"nav-link text-white" do  %>
+          <i class="fas fa-home"></i>Home
+        <% end %>
       </li>
       <li>
-        <%= link_to "sign up", new_user_registration_path %>
+        <%= link_to about_path ,class:"nav-link text-white" do  %>
+          <i class="fas fa-users pr-1"></i>About
+        <% end %>
       </li>
       <li>
-        <%= link_to "Log in", new_user_session_path %>
+        <%= link_to new_user_registration_path ,class:"nav-link text-white" do  %>
+          <i class="fas fa-users pr-1"></i>sign up
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_session_path ,class:"nav-link text-white" do  %>
+          <i class="fas fa-users pr-1"></i>Log in
+        <% end %>
       </li>
     <% end %>
         </ul>
@@ -50,14 +68,18 @@
     </div>
   </nav>
   </header>
-  
+
     <%= yield %>
-  
+
   <footer>
-
-  <p>CopyRight Infratop.inc</p>
-
-  </footer>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+    </footer>
 
   </body>
 </html>
