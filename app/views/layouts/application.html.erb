@@ -27,18 +27,18 @@
         <% end %>
       </li>
       <li>
-        <%= link_to user_path(current_user.id) ,class:"nav-link text-white" do %>
+        <%= link_to users_path ,class:"nav-link text-white" do %>
           <i class="fas fa-users pr-1"></i>Users
         <% end %>
       </li>
       <li>
         <%= link_to books_path  ,class:"nav-link text-white" do %>
-          <i class="fas fa-users pr-1"></i>Books
+          <i class="fas fa-book-open"></i>Books
         <% end %>
       </li>
       <li>
         <%= link_to destroy_user_session_path ,class:"nav-link text-white" , method: :delete do %>
-          <i class="fas fa-users pr-1"></i>Log out
+          <i class="fas fa-sign-out-alt"></i>Log out
         <% end %>
       </li>
     <% else %>
@@ -49,17 +49,17 @@
       </li>
       <li>
         <%= link_to about_path ,class:"nav-link text-white" do  %>
-          <i class="fas fa-users pr-1"></i>About
+          <i class="fas fa-link"></i>About
         <% end %>
       </li>
       <li>
         <%= link_to new_user_registration_path ,class:"nav-link text-white" do  %>
-          <i class="fas fa-users pr-1"></i>sign up
+          <i class="fas fa-user-plus"></i>Sign up
         <% end %>
       </li>
       <li>
         <%= link_to new_user_session_path ,class:"nav-link text-white" do  %>
-          <i class="fas fa-users pr-1"></i>Log in
+          <i class="fas fa-sign-in-alt"></i>Log in
         <% end %>
       </li>
     <% end %>

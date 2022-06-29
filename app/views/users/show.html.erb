@@ -1,18 +1,8 @@
-<p id="notice"></p>
+<p id="notice"><%= notice %></p>
 <div class='container px-5 px-sm-0'>
-
-  <% if @book.errors.any? %>
-    <h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
   <div class='row'>
     <div class='col-md-3'>
-      <%= render 'books/side', user: @user, book: @book %>
+      <%= render 'books/side', user: @user, book: @book_new %>
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
@@ -30,7 +20,7 @@
             <tr>
               <td>
                 <%= link_to user_path(book.user.id) do %>
-                  <%= image_tag book.user.get_profile_image(80,60) %>
+                  <%= image_tag @user.get_profile_image(60,60) %>
                 <% end %>
               </td>
               <td>
